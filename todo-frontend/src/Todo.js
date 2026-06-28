@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 export default function Todo() {
 
@@ -44,18 +44,17 @@ export default function Todo() {
             })
         }
     }
-
-    useEffect(() => {
-        getItems()
-    }, [getItems])
-
-    const getItems = () => {
+    const getItems = useCallback(async() => {
         fetch(apiUrl+"/todos")
         .then((res) => res.json())
         .then((res) => {
             setTodos(res)
         })
-    }
+    },[]);
+    
+    useEffect(() => {
+        getItems()
+    }, [getItems])
 
     const handleEdit = (item) => {
         setEditId(item._id); 
