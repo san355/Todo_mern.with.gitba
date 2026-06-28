@@ -9,9 +9,12 @@
   "author": "JV Logesh",
   "license": "ISC",
   "dependencies": {
+    "@vercel/node": "^5.8.22",
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "mongoose": "^8.3.1",
+    "mongodb": "^7.4.0",
+    "mongoose": "^8.24.1",
+    "moongoose": "^0.0.5",
     "nodemon": "^3.1.0"
   }
 }

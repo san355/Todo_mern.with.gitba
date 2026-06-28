@@ -13,8 +13,8 @@ export default function Todo() {
     const [editTitle, setEditTitle] = useState("");
     const [editDescription, setEditDesciption] = useState("");
 
-    const apiUrl = "http://localhost:8000";
-    
+    const apiUrl = import.meta.env.VITE_API_URL;
+    //http://localhost:8000
     const handleSubmit = () => {
         setError("")
         //check inputs
@@ -36,8 +36,7 @@ export default function Todo() {
                         setMessage("");
                     },3000)
     
-                }else {
-                    //set error
+                }else {                    //set error
                     setError("Unable to create Todo item")
                 }
             }).catch(() => {
@@ -122,7 +121,7 @@ export default function Todo() {
     }
 
     return <>
-        <div className="row p-3 bg-success text-light">
+        <div className="row p-3 bg-info text-secondary">
             <h1>ToDo Project with MERN stack</h1>
         </div>
         <div className="row">
@@ -141,7 +140,7 @@ export default function Todo() {
 
                 <ul className="list-group">
                     { 
-                    todos.map((item) =>  <li className="list-group-item bg-info d-flex justify-content-between align-items-center my-2">
+                    todos.map((item,index) =>  <li key={index}  className="list-group-item bg-success d-flex justify-content-between align-items-center my-2">
                     <div className="d-flex flex-column me-2">
                         {
                             editId == -1 || editId !==  item._id ? <>
