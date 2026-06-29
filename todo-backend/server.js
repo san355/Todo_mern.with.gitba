@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json())
 app.use(cors())
 //T3hOaLMouJFViHr9
-mongoose.connect('mongodb://localhost:27017/mernTodo')//mongodb+srv://santhiyalingam4_db_user:T3hOaLMouJFViHr9@todolist.qlmz2bc.mongodb.net/?appName=TodoList
+mongoose.connect('mongodb+srv://santhiyalingam4_db_user:T3hOaLMouJFViHr9@todolist.qlmz2bc.mongodb.net/?appName=TodoList')//mongodb+srv://santhiyalingam4_db_user:T3hOaLMouJFViHr9@todolist.qlmz2bc.mongodb.net/?appName=TodoList
 .then(() => {
     console.log('DB Connected!')
 })
